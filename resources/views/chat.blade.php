@@ -80,7 +80,9 @@
         let ip_address = '27.71.27.180';
         let socket_port = '3000';
 
-        const socket = io('ws://27.71.27.180', {transports: ['websocket']});
+        let socket = io(ip_address + ':' + socket_port, {
+            transports: ["websocket"]
+        });
 
         let chatInput = $('#chatInput');
 
