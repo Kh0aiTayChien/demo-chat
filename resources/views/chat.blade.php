@@ -79,7 +79,9 @@
     $(function () {
         let ip_address = '27.71.27.180';
         let socket_port = '3000';
-        let socket = io(ip_address + ':' + socket_port);
+        let socket = io(ip_address + ':' + socket_port, {
+            transports: ["websocket"]
+        });
 
         let chatInput = $('#chatInput');
 
