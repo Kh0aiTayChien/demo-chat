@@ -84,11 +84,14 @@
             transports: ["websocket"]
         });
 
+        console.log(socket);
+
         let chatInput = $('#chatInput');
 
         chatInput.keypress(function (e) {
             let message = $(this).html();
-            console.log(message);
+            console.log("Keypress event:", message); // Đoạn mã debug, ghi thông báo khi nhấn phím
+
             if (e.which === 13 && !e.shiftKey) {
                 socket.emit('sendChatToServer', message);
                 chatInput.html('');
@@ -96,10 +99,20 @@
             }
         });
 
+        socket.on('connect', () => {
+            console.log("Socket connected"); // Đoạn mã debug, ghi thông báo khi socket kết nối thành công
+        });
+
+        socket.on('disconnect', () => {
+            console.log("Socket disconnected"); // Đoạn mã debug, ghi thông báo khi socket bị ngắt kết nối
+        });
+
         socket.on('sendChatToClient', (message) => {
+            console.log("Received message:", message); // Đoạn mã debug, ghi thông báo khi nhận được tin nhắn từ máy chủ
             $('.chat-content ul').append(`<li>${message}</li>`);
         });
     });
+
 </script>
 </body>
 </html>
