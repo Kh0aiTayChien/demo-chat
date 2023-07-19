@@ -77,7 +77,7 @@
 
 <script>
     $(function () {
-        let ip_address = '27.71.27.180';
+        let ip_address = 'chat-demo.27-71-27-180.flashvps.xyz';
         let socket_port = '3000';
 
         let socket = io(ip_address, {
