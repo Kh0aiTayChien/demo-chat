@@ -80,9 +80,7 @@
         let ip_address = 'chat-demo.27-71-27-180.flashvps.xyz';
         let socket_port = '3000';
 
-        let socket = io(ip_address, {
-            transports: ["websocket"]
-        });
+        let socket = io('http://' + ip_address);
         console.log(socket);
 
         let chatInput = $('#chatInput');
