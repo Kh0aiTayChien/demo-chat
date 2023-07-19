@@ -80,7 +80,9 @@
         let ip_address = '27.71.27.180';
         let socket_port = '3000';
 
-        const socket = io("http://27.71.27.180");
+        const socket = io("http://27.71.27.180", {
+            transports: ["websocket"]
+        });
 
         console.log(socket);
 
