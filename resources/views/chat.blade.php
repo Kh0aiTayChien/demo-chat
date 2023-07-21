@@ -108,15 +108,19 @@
         });
 
         socket.on('connect', () => {
-            console.log("Socket connected"); // Đoạn mã debug, ghi thông báo khi socket kết nối thành công
+            console.log("Socket connected");
         });
 
-        socket.on('disconnect', () => {
-            console.log("Socket disconnected"); // Đoạn mã debug, ghi thông báo khi socket bị ngắt kết nối
+        socket.on('disconnect', (reason) => {
+            console.log("Socket disconnected:", reason); // In ra lý do ngắt kết nối
+        });
+
+        socket.on('error', (error) => {
+            console.error("Socket error:", error); // In ra lỗi kết nối
         });
 
         socket.on('sendChatToClient', (message) => {
-            console.log("Received message:", message); // Đoạn mã debug, ghi thông báo khi nhận được tin nhắn từ máy chủ
+            console.log("Received message:", message);
             $('.chat-content ul').append(`<li>${message}</li>`);
         });
     });
