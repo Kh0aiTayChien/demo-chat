@@ -77,12 +77,23 @@
 
 <script>
     $(function () {
-        let ip_address = 'chat-demo.27-71-27-180.flashvps.xyz';
+        let ip_address = '27.71.27.180';
         let socket_port = '3000';
 
-        let socket = io('http://' + ip_address);
-        console.log(socket);
+        // let socket = io('http://' + ip_address + ':' + socket_port,
+        //     {
+        //         transports: ["websocket"]
+        //     });
 
+        // const socket = io({
+        //     transports: ['websocket'] // Thêm tùy chọn transports vào đây
+        // });
+
+        const socket = io('http://' + ip_address + ':' + socket_port, {
+            transports: ['websocket']
+        });
+
+        console.log(socket);
         let chatInput = $('#chatInput');
 
         chatInput.keypress(function (e) {
