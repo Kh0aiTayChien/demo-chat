@@ -89,7 +89,7 @@
         //     transports: ['websocket'] // Thêm tùy chọn transports vào đây
         // });
 
-        const socket = io('http://' + ip_address + ':' + socket_port, {
+        const socket = io('http://chat-demo.27-71-27-180.flashvps.xyz/socket.io/', {
             transports: ['websocket']
         });
 
