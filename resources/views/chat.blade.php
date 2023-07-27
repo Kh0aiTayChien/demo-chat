@@ -78,7 +78,7 @@
 <script>
     $(function () {
 
-        const socket = io('http://chat-demo.27-71-27-180.flashvps.xyz/socket.io/', {
+        const socket = io('/socket.io/', {
             transports: ['websocket']
         });
 
