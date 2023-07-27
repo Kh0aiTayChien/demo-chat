@@ -77,17 +77,6 @@
 
 <script>
     $(function () {
-        let ip_address = '27.71.27.180';
-        let socket_port = '3000';
-
-        // let socket = io('http://' + ip_address + ':' + socket_port,
-        //     {
-        //         transports: ["websocket"]
-        //     });
-
-        // const socket = io({
-        //     transports: ['websocket'] // Thêm tùy chọn transports vào đây
-        // });
 
         const socket = io('http://localhost:3000', {
             transports: ['websocket']
@@ -101,6 +90,7 @@
             console.log("Keypress event:", message); // Đoạn mã debug, ghi thông báo khi nhấn phím
 
             if (e.which === 13 && !e.shiftKey) {
+                $('.chat-content ul').append(`<li>${message}</li>`);
                 socket.emit('sendChatToServer', message);
                 chatInput.html('');
                 return false;
